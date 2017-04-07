@@ -1,0 +1,28 @@
+{
+  "name": "chromecast-device-emulator",
+  "description": "",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "babel ./src --out-dir dist",
+    "prestart": "npm run build",
+    "start": "node ./dist/index.js"
+  },
+  "author": "AJ Hsu",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ajhsu/chromecast-device-emulator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ajhsu/chromecast-device-emulator/issues"
+  },
+  "homepage": "https://github.com/ajhsu/chromecast-device-emulator#readme",
+  "dependencies": {
+    "websocket": "^1.0.24",
+    "ws": "^2.1.0"
+  },
+  "devDependencies": {
+    "babel": "^5.8.38"
+  }
+}
