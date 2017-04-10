@@ -1,4 +1,4 @@
-import CastDeviceEmulator from './castDeviceEmulator';
+import CastDeviceEmulator from './index';
 import WebSocket from 'ws';
 import Ajv from 'ajv';
 
