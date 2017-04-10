@@ -21,8 +21,7 @@
   },
   "homepage": "https://github.com/ajhsu/chromecast-device-emulator#readme",
   "dependencies": {
-    "websocket": "^1.0.24",
-    "ws": "^2.1.0"
+    "ws": "^2.2.3"
   },
   "devDependencies": {
     "babel": "^5.8.38",
