@@ -19,8 +19,9 @@ class CastDeviceEmulator {
     if (!this.wss) {
       throw new Error('WebSocket was not ready.');
     }
-    this.wss.once('message', this._webSocketMessageHandler);
-    this.wss.once('connection', this._webSocketConnectionHandler);
+    // Starting to handle websocket connections
+    this.wss.on('connection', this._webSocketConnectionHandler);
+    console.log('Chromecast Device Emulator is waiting for connections..');
   }
   stop() {
     this.wss.removeAllListeners('message');
@@ -28,6 +29,9 @@ class CastDeviceEmulator {
   }
   _webSocketConnectionHandler(ws) {
     console.log('There is a cast client just connected.');
+    // Registering for message handler
+    ws.on('message', this._webSocketMessageHandler);
+    // Setting-up recorded message callback
     this.recordedMessages.map(m => {
       const sendRecordedMessage = () => {
         if (ws.readyState === WebSocket.OPEN) {
