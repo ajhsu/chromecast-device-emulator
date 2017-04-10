@@ -1,7 +1,7 @@
 {
   "name": "chromecast-device-emulator",
   "description": "",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/index.js",
   "scripts": {
     "build": "babel ./src --out-dir dist",
