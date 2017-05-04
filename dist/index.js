@@ -45,6 +45,13 @@ var CastDeviceEmulator = (function () {
       this.wss.removeAllListeners('connection');
     }
   }, {
+    key: 'close',
+    value: function close() {
+      this.wss.close(function () {
+        console.log('Chromecast Device Emulator is closed.');
+      });
+    }
+  }, {
     key: '_webSocketConnectionHandler',
     value: function _webSocketConnectionHandler(ws) {
       console.log('There is a cast client just connected.');
