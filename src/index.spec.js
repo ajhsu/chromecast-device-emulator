@@ -17,7 +17,10 @@ describe('CastDeviceEmulator', function() {
     it('should respond to websocket connection', function(done) {
       this.timeout(30 * 1000);
 
-      const emulator = new CastDeviceEmulator();
+      const opt = {
+        silent: true
+      };
+      const emulator = new CastDeviceEmulator(opt);
       emulator.loadScript(require('../recorded-scripts/unit-testing.json'));
       emulator.start();
 
