@@ -4,7 +4,7 @@
   "version": "1.0.2",
   "main": "dist/index.js",
   "scripts": {
-    "build": "babel ./src --out-dir dist",
+    "build": "./node_modules/.bin/babel ./src --out-dir dist",
     "prestart": "npm run build",
     "start": "node ./dist/example.js",
     "pretest": "npm run build",
