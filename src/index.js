@@ -13,8 +13,8 @@ class CastDeviceEmulator {
       this
     );
   }
-  loadScript(messages) {
-    this.recordedMessages = messages;
+  loadScenario(scenarioFile) {
+    this.recordedMessages = scenarioFile.timeline;
   }
   start() {
     if (!this.wss) {
@@ -43,7 +43,7 @@ class CastDeviceEmulator {
     this.recordedMessages.map(m => {
       const sendRecordedMessage = () => {
         if (ws.readyState === WebSocket.OPEN) {
-          ws.send(m.message);
+          ws.send(m.ipcMessage);
         }
       };
       setTimeout(sendRecordedMessage, m.time);

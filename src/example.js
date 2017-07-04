@@ -1,4 +1,4 @@
 import CastDeviceEmulator from './index';
 const emulator = new CastDeviceEmulator();
-emulator.loadScript(require('../recorded-scripts/unit-testing.json'));
+emulator.loadScenario(require('../scenarios/unit-testing.json'));
 emulator.start();

@@ -8,7 +8,7 @@ const { assert, expect } = require('chai');
 describe('CastDeviceEmulator', function() {
   describe('Methods', function() {
     it('should have expected public methods', function() {
-      expect(CastDeviceEmulator).to.respondTo('loadScript');
+      expect(CastDeviceEmulator).to.respondTo('loadScenario');
       expect(CastDeviceEmulator).to.respondTo('start');
       expect(CastDeviceEmulator).to.respondTo('stop');
     });
@@ -21,7 +21,7 @@ describe('CastDeviceEmulator', function() {
         silent: true
       };
       const emulator = new CastDeviceEmulator(opt);
-      emulator.loadScript(require('../recorded-scripts/unit-testing.json'));
+      emulator.loadScenario(require('../scenarios/unit-testing.json'));
       emulator.start();
 
       // Trying to mimic client behavior
@@ -29,9 +29,12 @@ describe('CastDeviceEmulator', function() {
       wsc.on('open', function open() {
         // Emit start-up messages once websocket connection is established.
         const MESSAGE = {
-          READY: '{"namespace":"urn:x-cast:com.google.cast.system","senderId":"SystemSender","data":"{"type":"ready","statusText":"Ready to play","activeNamespaces":["urn:x-cast:com.example.cast.custom","urn:x-cast:com.google.cast.broadcast","urn:x-cast:com.google.cast.media","urn:x-cast:com.google.cast.inject"],"version":"2.0.0","messagesVersion":"1.0"}"}',
-          START_HEARTBEAT: '{"namespace":"urn:x-cast:com.google.cast.system","senderId":"SystemSender","data":"{"type":"startheartbeat","maxInactivity":10}"}',
-          MEDIA_STATUS: '{"namespace":"urn:x-cast:com.google.cast.media","senderId":"*:*","data":"{"type":"MEDIA_STATUS","status":[],"requestId":0}"}'
+          READY:
+            '{"namespace":"urn:x-cast:com.google.cast.system","senderId":"SystemSender","data":"{"type":"ready","statusText":"Ready to play","activeNamespaces":["urn:x-cast:com.example.cast.custom","urn:x-cast:com.google.cast.broadcast","urn:x-cast:com.google.cast.media","urn:x-cast:com.google.cast.inject"],"version":"2.0.0","messagesVersion":"1.0"}"}',
+          START_HEARTBEAT:
+            '{"namespace":"urn:x-cast:com.google.cast.system","senderId":"SystemSender","data":"{"type":"startheartbeat","maxInactivity":10}"}',
+          MEDIA_STATUS:
+            '{"namespace":"urn:x-cast:com.google.cast.media","senderId":"*:*","data":"{"type":"MEDIA_STATUS","status":[],"requestId":0}"}'
         };
         wsc.send(MESSAGE.READY);
         wsc.send(MESSAGE.START_HEARTBEAT);
