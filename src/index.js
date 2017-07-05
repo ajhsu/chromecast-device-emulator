@@ -3,10 +3,7 @@ const WebSocket = require('ws');
 class CastDeviceEmulator {
   constructor(opt) {
     this.opt = opt;
-    this.wss = new WebSocket.Server({
-      port: 8008,
-      path: '/v2/ipc'
-    });
+    this.wss = null;
     this.recordedMessages = [];
     this._webSocketMessageHandler = this._webSocketMessageHandler.bind(this);
     this._webSocketConnectionHandler = this._webSocketConnectionHandler.bind(
@@ -16,23 +13,41 @@ class CastDeviceEmulator {
   loadScenario(scenarioFile) {
     this.recordedMessages = scenarioFile.timeline;
   }
-  start() {
-    if (!this.wss) {
-      throw new Error('WebSocket was not ready.');
-    }
-    // Starting to handle websocket connections
-    this.wss.on('connection', this._webSocketConnectionHandler);
-    if (!this.opt.silent)
-      console.log('Chromecast Device Emulator is waiting for connections..');
+  start(callback) {
+    this.wss = new WebSocket.Server(
+      {
+        port: serverConfig.port,
+        path: serverConfig.path
+      },
+      () => {
+        // Starting to handle websocket connections
+        this.wss.on('connection', this._webSocketConnectionHandler);
+        if (!this.opt.silent) {
+          console.log(
+            `Chromecast Device Emulator established a websocket server at port ${serverConfig.port}`
+          );
+          console.log(
+            'Chromecast Device Emulator is waiting for connections..'
+          );
+        }
+        if (callback) callback();
+      }
+    );
   }
   stop() {
     this.wss.removeAllListeners('message');
     this.wss.removeAllListeners('connection');
   }
-  close() {
+  close(callback) {
+    if (!this.wss) {
+      console.log('There is no websocket existing.');
+      return;
+    }
     this.wss.close(() => {
-      if (!this.opt.silent)
+      if (!this.opt.silent) {
         console.log('Chromecast Device Emulator is closed.');
+      }
+      if (callback) callback();
     });
   }
   _webSocketConnectionHandler(ws) {

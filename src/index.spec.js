@@ -13,6 +13,30 @@ describe('CastDeviceEmulator', function() {
       expect(CastDeviceEmulator).to.respondTo('stop');
     });
   });
+  describe('.close()', function() {
+    it('should close websocket server properly', function(
+      done
+    ) {
+      this.timeout(30 * 1000);
+
+      const scenario = require('../scenarios/unit-testing.json');
+
+      const emulator1 = new CastDeviceEmulator();
+      const emulator2 = new CastDeviceEmulator();
+
+      emulator1.loadScenario(scenario);
+      emulator2.loadScenario(scenario);
+
+      // Well, I just don't want install promise-related packages..
+      emulator1.start(function() {
+        emulator1.close(function() {
+          emulator2.start(function() {
+            emulator2.close(done);
+          });
+        });
+      });
+    });
+  });
   describe('WebSocket basic operations', function() {
     it('should respond to websocket connection', function(done) {
       this.timeout(30 * 1000);
