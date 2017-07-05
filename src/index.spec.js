@@ -101,7 +101,7 @@ describe('CastDeviceEmulator', function() {
         console.log('Received an event:', typeProperty);
         // Client did received QUEUE_LOAD message from emulator
         if (typeProperty.toUpperCase() === 'QUEUE_LOAD') {
-          done();
+          emulator.close(done);
         }
       });
     });
