@@ -1,7 +1,7 @@
 const WebSocket = require('ws');
 
 class CastDeviceEmulator {
-  constructor(opt) {
+  constructor(opt = {}) {
     this.opt = opt;
     this.wss = null;
     this.recordedMessages = [];
