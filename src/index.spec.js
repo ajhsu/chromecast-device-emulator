@@ -6,7 +6,7 @@ const jsonSchemaValidator = new Ajv();
 const { assert, expect } = require('chai');
 
 describe('CastDeviceEmulator', function() {
-  describe('Methods', function() {
+  describe('Methods existance', function() {
     it('should have expected public methods', function() {
       expect(CastDeviceEmulator).to.respondTo('loadScenario');
       expect(CastDeviceEmulator).to.respondTo('start');
@@ -58,13 +58,12 @@ describe('CastDeviceEmulator', function() {
     });
   });
   describe('WebSocket basic operations', function() {
-    it('should respond to websocket connection', function(done) {
+    it('should respond to websocket client connection', function(done) {
       this.timeout(30 * 1000);
 
-      const opt = {
+      const emulator = new CastDeviceEmulator({
         silent: true
-      };
-      const emulator = new CastDeviceEmulator(opt);
+      });
       emulator.loadScenario(require('../scenarios/unit-testing.json'));
       emulator.start();
 
