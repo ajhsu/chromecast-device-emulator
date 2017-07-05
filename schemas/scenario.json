@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "properties": {
+    "timeline": {
+      "id": "/properties/timeline",
+      "items": {
+        "id": "/properties/timeline/items",
+        "properties": {
+          "ipcMessage": {
+            "id": "/properties/timeline/items/properties/ipcMessage",
+            "type": "string"
+          },
+          "time": {
+            "id": "/properties/timeline/items/properties/time",
+            "type": "integer"
+          }
+        },
+        "required": ["ipcMessage", "time"],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": ["timeline"],
+  "type": "object"
+}

@@ -13,6 +13,26 @@ describe('CastDeviceEmulator', function() {
       expect(CastDeviceEmulator).to.respondTo('stop');
     });
   });
+  describe('.loadScenario()', function() {
+    it("should fail when doesn't fit json schema", function(done) {
+      this.timeout(30 * 1000);
+      var falsyScenarioObject = {
+        notATimeline: [
+          {
+            notTime: 6722,
+            notIpcMessage:
+              '{"data":"{\\"applicationId\\":\\"7BDF108F\\",\\"applicationName\\":\\"Testing App\\",\\"closedCaption\\":{},\\"deviceCapabilities\\":{\\"bluetooth_supported\\":false,\\"display_supported\\":true,\\"hi_res_audio_supported\\":false},\\"launchingSenderId\\":\\"aaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee.ff:com.example.android-000\\",\\"messagesVersion\\":\\"1.0\\",\\"sessionId\\":\\"d111111b-2222-3333-4444-55d5e5eebc5b\\",\\"type\\":\\"ready\\",\\"version\\":\\"1.22.78337\\"}","namespace":"urn:x-cast:com.google.cast.system","senderId":"SystemSender"}'
+          }
+        ]
+      };
+      const emulator = new CastDeviceEmulator();
+      const badFunction = () => {
+        emulator.loadScenario(falsyScenarioObject);
+      };
+      expect(badFunction).to.throw(Error);
+      done();
+    });
+  });
   describe('.close()', function() {
     it('should close websocket server properly', function(
       done

@@ -1,4 +1,10 @@
 const WebSocket = require('ws');
+const Ajv = require('ajv');
+const jsonSchemaValidator = new Ajv();
+const serverConfig = {
+  port: 8008,
+  path: '/v2/ipc'
+};
 
 class CastDeviceEmulator {
   constructor(opt = {}) {
@@ -11,6 +17,14 @@ class CastDeviceEmulator {
     );
   }
   loadScenario(scenarioFile) {
+    if (
+      !jsonSchemaValidator.validate(
+        require('../schemas/scenario.json'),
+        scenarioFile
+      )
+    ) {
+      throw new Error('Invalid scenario schema!');
+    }
     this.recordedMessages = scenarioFile.timeline;
   }
   start(callback) {
