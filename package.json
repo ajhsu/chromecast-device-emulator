@@ -1,7 +1,7 @@
 {
   "name": "chromecast-device-emulator",
-  "description": "",
-  "version": "1.0.2",
+  "description": "Testing your chromecast receiver app, without a real-device needed.",
+  "version": "1.1.0",
   "main": "dist/index.js",
   "scripts": {
     "build": "./node_modules/.bin/babel ./src --out-dir dist",
