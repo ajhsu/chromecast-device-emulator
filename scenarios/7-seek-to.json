@@ -1,0 +1,54 @@
+[
+  {
+    "time": 3722,
+    "message": "{\"data\":\"{\\\"applicationId\\\":\\\"7BDF108F\\\",\\\"applicationName\\\":\\\"KKBOX Local Testing App v1.2\\\",\\\"closedCaption\\\":{},\\\"deviceCapabilities\\\":{\\\"bluetooth_supported\\\":false,\\\"display_supported\\\":true,\\\"hi_res_audio_supported\\\":false},\\\"launchingSenderId\\\":\\\"d5fc5baa-f36d-f4b6-e69f-c442bb8fd26a.175:com.skysoft.kkbox.android-139\\\",\\\"messagesVersion\\\":\\\"1.0\\\",\\\"sessionId\\\":\\\"bef16ef7-2a59-4418-bbd0-f74f4ef72ae5\\\",\\\"type\\\":\\\"ready\\\",\\\"version\\\":\\\"1.23.84839\\\"}\",\"namespace\":\"urn:x-cast:com.google.cast.system\",\"senderId\":\"SystemSender\"}"
+  },
+  {
+    "time": 3837,
+    "message": "{\"data\":\"{\\\"level\\\":1.0,\\\"muted\\\":false,\\\"type\\\":\\\"volumechanged\\\"}\",\"namespace\":\"urn:x-cast:com.google.cast.system\",\"senderId\":\"SystemSender\"}"
+  },
+  {
+    "time": 3934,
+    "message": "{\"data\":\"{\\\"type\\\":\\\"visibilitychanged\\\"}\",\"namespace\":\"urn:x-cast:com.google.cast.system\",\"senderId\":\"SystemSender\"}"
+  },
+  {
+    "time": 3959,
+    "message": "{\"data\":\"{\\\"type\\\":\\\"standbychanged\\\"}\",\"namespace\":\"urn:x-cast:com.google.cast.system\",\"senderId\":\"SystemSender\"}"
+  },
+  {
+    "time": 3981,
+    "message": "{\"data\":\"{\\\"hdrType\\\":\\\"sdr\\\",\\\"type\\\":\\\"hdroutputtypechanged\\\"}\",\"namespace\":\"urn:x-cast:com.google.cast.system\",\"senderId\":\"SystemSender\"}"
+  },
+  {
+    "time": 4233,
+    "message": "{\"data\":\"{\\\"senderId\\\":\\\"d5fc5baa-f36d-f4b6-e69f-c442bb8fd26a.175:com.skysoft.kkbox.android-139\\\",\\\"type\\\":\\\"senderconnected\\\",\\\"userAgent\\\":\\\"Android CastSDK,10298440,SM-N9208,nobleltezt,6.0.1\\\"}\",\"namespace\":\"urn:x-cast:com.google.cast.system\",\"senderId\":\"SystemSender\"}"
+  },
+  {
+    "time": 4339,
+    "message": "{\"data\":\"{\\\"requestId\\\":1,\\\"type\\\":\\\"GET_STATUS\\\"}\",\"namespace\":\"urn:x-cast:com.google.cast.media\",\"senderId\":\"d5fc5baa-f36d-f4b6-e69f-c442bb8fd26a.175:com.skysoft.kkbox.android-139\"}"
+  },
+  {
+    "time": 4522,
+    "message": "{\"data\":\"{\\\"requestId\\\":2,\\\"type\\\":\\\"QUEUE_LOAD\\\",\\\"items\\\":[{\\\"media\\\":{\\\"contentId\\\":\\\"7625577\\\",\\\"streamType\\\":\\\"BUFFERED\\\",\\\"contentType\\\":\\\"audio\\\\/mp3\\\",\\\"metadata\\\":{\\\"metadataType\\\":3,\\\"images\\\":[{\\\"url\\\":\\\"https:\\\\/\\\\/i.kfs.io\\\\/album\\\\/jp\\\\/672264,P\\\\/fit\\\\/500x500.jpg\\\",\\\"width\\\":0,\\\"height\\\":0}],\\\"title\\\":\\\"愛從零開始\\\",\\\"trackNumber\\\":7625577,\\\"contentId\\\":\\\"O-hQo7j07TL9bT.O3T.O30P4\\\"},\\\"duration\\\":260},\\\"autoplay\\\":true,\\\"startTime\\\":0,\\\"preloadTime\\\":10},{\\\"media\\\":{\\\"contentId\\\":\\\"1703248\\\",\\\"streamType\\\":\\\"BUFFERED\\\",\\\"contentType\\\":\\\"audio\\\\/mp3\\\",\\\"metadata\\\":{\\\"metadataType\\\":3,\\\"title\\\":\\\"給我一首歌的時間\\\",\\\"trackNumber\\\":1703248,\\\"contentId\\\":\\\"Ek2Wgvx08GZ1lW8QVW8QV0P4\\\"},\\\"duration\\\":253},\\\"autoplay\\\":true,\\\"startTime\\\":0,\\\"preloadTime\\\":10}],\\\"repeatMode\\\":\\\"REPEAT_OFF\\\",\\\"startIndex\\\":0,\\\"currentTime\\\":0,\\\"customData\\\":{\\\"sid\\\":\\\"V0008bwY18500A000000000001QIG.z01CLHpAbED0K135PoQDS001P2RThb562\\\",\\\"enc\\\":\\\"u\\\",\\\"ver\\\":\\\"06000072\\\",\\\"os\\\":\\\"android\\\",\\\"osver\\\":\\\"6.0.1\\\",\\\"lang\\\":\\\"ja\\\",\\\"dist\\\":\\\"0021\\\",\\\"dist2\\\":\\\"0021\\\",\\\"userName\\\":\\\"名前なし\\\",\\\"userAvatarUrl\\\":\\\"https:\\\\/\\\\/i.kfs.io\\\\/muser\\\\/global\\\\/noimg\\\\/cropresize\\\\/180x180.jpg\\\",\\\"playMode\\\":\\\"NORMAL\\\",\\\"playlistTitle\\\":\\\"整合測試\\\",\\\"checksum\\\":\\\"b73a195eb7c9ad4a1c406c2abf0a83ae\\\",\\\"timestamp\\\":\\\"1493809422\\\"}}\",\"namespace\":\"urn:x-cast:com.google.cast.media\",\"senderId\":\"d5fc5baa-f36d-f4b6-e69f-c442bb8fd26a.175:com.skysoft.kkbox.android-139\"}"
+  },
+  {
+    "time": 5990,
+    "message": "{\"data\":\"{\\\"requestId\\\":248,\\\"type\\\":\\\"GET_STATUS\\\"}\",\"namespace\":\"urn:x-cast:com.google.cast.media\",\"senderId\":\"d5fc5baa-f36d-f4b6-e69f-c442bb8fd26a.180:gms_cast_rcn-143\"}"
+  },
+  {
+    "time": 6013,
+    "message": "{\"data\":\"{\\\"requestId\\\":249,\\\"type\\\":\\\"GET_STATUS\\\"}\",\"namespace\":\"urn:x-cast:com.google.cast.media\",\"senderId\":\"d5fc5baa-f36d-f4b6-e69f-c442bb8fd26a.180:gms_cast_rcn-143\"}"
+  },
+  {
+    "time": 12225,
+    "message": "{\"data\":\"{\\\"requestId\\\":3,\\\"type\\\":\\\"QUEUE_UPDATE\\\",\\\"mediaSessionId\\\":1,\\\"items\\\":[{\\\"media\\\":{\\\"contentId\\\":\\\"1703248\\\",\\\"streamType\\\":\\\"BUFFERED\\\",\\\"contentType\\\":\\\"audio\\\\/mp3\\\",\\\"metadata\\\":{\\\"metadataType\\\":3,\\\"images\\\":[{\\\"url\\\":\\\"https:\\\\/\\\\/i.kfs.io\\\\/album\\\\/jp\\\\/110102,P\\\\/fit\\\\/500x500.jpg\\\",\\\"width\\\":0,\\\"height\\\":0}],\\\"title\\\":\\\"給我一首歌的時間\\\",\\\"trackNumber\\\":1703248,\\\"contentId\\\":\\\"Ek2Wgvx08GZ1lW8QVW8QV0P4\\\"},\\\"duration\\\":253},\\\"itemId\\\":2,\\\"autoplay\\\":true,\\\"startTime\\\":0,\\\"preloadTime\\\":10}]}\",\"namespace\":\"urn:x-cast:com.google.cast.media\",\"senderId\":\"d5fc5baa-f36d-f4b6-e69f-c442bb8fd26a.175:com.skysoft.kkbox.android-139\"}"
+  },
+  {
+    "time": 27149,
+    "message": "{\"data\":\"{\\\"requestId\\\":4,\\\"type\\\":\\\"SEEK\\\",\\\"mediaSessionId\\\":1,\\\"currentTime\\\":197.977}\",\"namespace\":\"urn:x-cast:com.google.cast.media\",\"senderId\":\"d5fc5baa-f36d-f4b6-e69f-c442bb8fd26a.175:com.skysoft.kkbox.android-139\"}"
+  },
+  {
+    "time": 48626,
+    "message": "{\"data\":\"{\\\"reason\\\":\\\"closed_by_peer\\\",\\\"senderId\\\":\\\"d5fc5baa-f36d-f4b6-e69f-c442bb8fd26a.175:com.skysoft.kkbox.android-139\\\",\\\"type\\\":\\\"senderdisconnected\\\"}\",\"namespace\":\"urn:x-cast:com.google.cast.system\",\"senderId\":\"SystemSender\"}"
+  }
+]

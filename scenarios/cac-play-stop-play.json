@@ -1,0 +1,46 @@
+[
+  {
+    "time": 32054,
+    "message": "{\"data\":\"{\\\"applicationId\\\":\\\"7BDF108F\\\",\\\"applicationName\\\":\\\"KKBOX Local Testing App v1.2\\\",\\\"closedCaption\\\":{},\\\"deviceCapabilities\\\":{\\\"bluetooth_supported\\\":false,\\\"display_supported\\\":true,\\\"hi_res_audio_supported\\\":false},\\\"launchingSenderId\\\":\\\"d5fc5baa-f36d-f4b6-e69f-c442bb8fd26a.3:sender-ixo2v7ic68j2\\\",\\\"messagesVersion\\\":\\\"1.0\\\",\\\"sessionId\\\":\\\"c6df5b90-c839-43a9-94e4-9f81b5a3fc41\\\",\\\"type\\\":\\\"ready\\\",\\\"version\\\":\\\"1.23.84839\\\"}\",\"namespace\":\"urn:x-cast:com.google.cast.system\",\"senderId\":\"SystemSender\"}"
+  },
+  {
+    "time": 32201,
+    "message": "{\"data\":\"{\\\"level\\\":1.0,\\\"muted\\\":false,\\\"type\\\":\\\"volumechanged\\\"}\",\"namespace\":\"urn:x-cast:com.google.cast.system\",\"senderId\":\"SystemSender\"}"
+  },
+  {
+    "time": 32323,
+    "message": "{\"data\":\"{\\\"type\\\":\\\"visibilitychanged\\\"}\",\"namespace\":\"urn:x-cast:com.google.cast.system\",\"senderId\":\"SystemSender\"}"
+  },
+  {
+    "time": 32377,
+    "message": "{\"data\":\"{\\\"type\\\":\\\"standbychanged\\\"}\",\"namespace\":\"urn:x-cast:com.google.cast.system\",\"senderId\":\"SystemSender\"}"
+  },
+  {
+    "time": 32423,
+    "message": "{\"data\":\"{\\\"hdrType\\\":\\\"sdr\\\",\\\"type\\\":\\\"hdroutputtypechanged\\\"}\",\"namespace\":\"urn:x-cast:com.google.cast.system\",\"senderId\":\"SystemSender\"}"
+  },
+  {
+    "time": 32727,
+    "message": "{\"data\":\"{\\\"senderId\\\":\\\"d5fc5baa-f36d-f4b6-e69f-c442bb8fd26a.3:149448737348963647\\\",\\\"type\\\":\\\"senderconnected\\\",\\\"userAgent\\\":\\\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36\\\"}\",\"namespace\":\"urn:x-cast:com.google.cast.system\",\"senderId\":\"SystemSender\"}"
+  },
+  {
+    "time": 33014,
+    "message": "{\"data\":\"{\\\"type\\\":\\\"GET_STATUS\\\",\\\"requestId\\\":52307887}\",\"namespace\":\"urn:x-cast:com.google.cast.media\",\"senderId\":\"d5fc5baa-f36d-f4b6-e69f-c442bb8fd26a.3:sender-ixo2v7ic68j2\"}"
+  },
+  {
+    "time": 38433,
+    "message": "{\"data\":\"{\\\"type\\\":\\\"SET_CREDENTIALS\\\",\\\"credentials\\\":\\\"hSO977bLf3C2F4IK7gouFQ==\\\",\\\"requestId\\\":16}\",\"namespace\":\"urn:x-cast:com.google.cast.cac\",\"senderId\":\"d5fc5baa-f36d-f4b6-e69f-c442bb8fd26a.3:149448737348963647\"}"
+  },
+  {
+    "time": 38626,
+    "message": "{\"data\":\"{\\\"type\\\":\\\"LOAD_BY_ENTITY\\\",\\\"entity\\\":\\\"https://www.kkbox.com/tracks/1.yPm0WC8561DU2m1DU2m0PL\\\",\\\"shuffle\\\":true,\\\"requestId\\\":17}\",\"namespace\":\"urn:x-cast:com.google.cast.cac\",\"senderId\":\"d5fc5baa-f36d-f4b6-e69f-c442bb8fd26a.3:149448737348963647\"}"
+  },
+  {
+    "time": 55644,
+    "message": "{\"data\":\"{\\\"type\\\":\\\"STOP\\\",\\\"mediaSessionId\\\":1,\\\"sessionId\\\":\\\"c6df5b90-c839-43a9-94e4-9f81b5a3fc41\\\",\\\"requestId\\\":18}\",\"namespace\":\"urn:x-cast:com.google.cast.media\",\"senderId\":\"d5fc5baa-f36d-f4b6-e69f-c442bb8fd26a.3:149448737348963647\"}"
+  },
+  {
+    "time": 66714,
+    "message": "{\"data\":\"{\\\"type\\\":\\\"PLAY\\\",\\\"mediaSessionId\\\":1,\\\"sessionId\\\":\\\"c6df5b90-c839-43a9-94e4-9f81b5a3fc41\\\",\\\"requestId\\\":19}\",\"namespace\":\"urn:x-cast:com.google.cast.media\",\"senderId\":\"d5fc5baa-f36d-f4b6-e69f-c442bb8fd26a.3:149448737348963647\"}"
+  }
+]

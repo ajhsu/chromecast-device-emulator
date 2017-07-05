@@ -2,6 +2,7 @@
 
 Testing your chromecast receiver app, without a real-device needed.
 
+[![npm](https://img.shields.io/npm/v/chromecast-device-emulator.svg)](https://www.npmjs.com/package/chromecast-device-emulator)
 [![Build Status](https://travis-ci.org/ajhsu/chromecast-device-emulator.svg?branch=master)](https://travis-ci.org/ajhsu/chromecast-device-emulator)
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
@@ -16,3 +17,9 @@ Chromecast Device Emulator is designed for solving this case so that you can tes
 While a real chromecast device do is actually running a chromium browser and running a socket server to passing IPC message from sender(s) in the background. So we can simply emulate the same context by creating a socket server in the background while we're developing our apps.
 
 ## Usage
+
+> *Work in progress..*
+
+## LICENSE
+
+MIT
