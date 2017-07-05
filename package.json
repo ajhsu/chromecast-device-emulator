@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/ajhsu/chromecast-device-emulator#readme",
   "dependencies": {
-    "ws": "^2.2.3"
+    "ws": "^2.3.1"
   },
   "devDependencies": {
     "ajv": "^4.11.6",
