@@ -21,7 +21,7 @@ describe('CastDeviceEmulator', function() {
           {
             notTime: 6722,
             notIpcMessage:
-              '{"data":"{\\"applicationId\\":\\"7BDF108F\\",\\"applicationName\\":\\"Testing App\\",\\"closedCaption\\":{},\\"deviceCapabilities\\":{\\"bluetooth_supported\\":false,\\"display_supported\\":true,\\"hi_res_audio_supported\\":false},\\"launchingSenderId\\":\\"aaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee.ff:com.example.android-000\\",\\"messagesVersion\\":\\"1.0\\",\\"sessionId\\":\\"d111111b-2222-3333-4444-55d5e5eebc5b\\",\\"type\\":\\"ready\\",\\"version\\":\\"1.22.78337\\"}","namespace":"urn:x-cast:com.google.cast.system","senderId":"SystemSender"}'
+              '{"data":"{\\"applicationId\\":\\"ABCD1234\\",\\"applicationName\\":\\"Testing App\\",\\"closedCaption\\":{},\\"deviceCapabilities\\":{\\"bluetooth_supported\\":false,\\"display_supported\\":true,\\"hi_res_audio_supported\\":false},\\"launchingSenderId\\":\\"aaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee.ff:com.example.android-000\\",\\"messagesVersion\\":\\"1.0\\",\\"sessionId\\":\\"d111111b-2222-3333-4444-55d5e5eebc5b\\",\\"type\\":\\"ready\\",\\"version\\":\\"1.22.78337\\"}","namespace":"urn:x-cast:com.google.cast.system","senderId":"SystemSender"}'
           }
         ]
       };
@@ -39,7 +39,7 @@ describe('CastDeviceEmulator', function() {
     ) {
       this.timeout(30 * 1000);
 
-      const scenario = require('../scenarios/unit-testing.json');
+      const scenario = require('../scenarios/example.json');
 
       const emulator1 = new CastDeviceEmulator();
       const emulator2 = new CastDeviceEmulator();
@@ -64,7 +64,7 @@ describe('CastDeviceEmulator', function() {
       const emulator = new CastDeviceEmulator({
         silent: true
       });
-      emulator.loadScenario(require('../scenarios/unit-testing.json'));
+      emulator.loadScenario(require('../scenarios/example.json'));
       emulator.start();
 
       // Trying to mimic client behavior
