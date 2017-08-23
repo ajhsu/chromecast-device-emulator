@@ -18,7 +18,59 @@ While a real chromecast device do is actually running a chromium browser and run
 
 ## Usage
 
-> *Work in progress..*
+There are two ways to use the emulator:
+
+1. Running the emulator alone, better for doing local development.
+
+2. Installing npm library `chromecast-device-emulator` as dependency, then requiring it from your code, better for integrate with your end-to-end testing.
+
+### 1. Running Chromecast Device Emulator standalone
+
+Install npm dependencies
+
+```bash
+npm install
+```
+
+Startup the emulator
+
+```bash
+npm start
+```
+
+The emulator is up and will serving at port 8008.
+
+The emulator will create a standalone connection for 
+each of chromecast receiver pages, so you can test with multiple receiver apps at same time.
+
+### 2. Integrate npm library into your project
+
+```bash
+npm install chromecast-device-emulator --save-dev
+```
+
+```javascript
+var CastDeviceEmulator = require('chromecast-device-emulator');
+
+// Create a new instance of emulator
+var emulator = new CastDeviceEmulator();
+
+// Load pre-recorded scenario
+emulator.loadScript(require('./example.json'));
+
+// Start the emulator
+emulator.start();
+
+// Server is up for receiver apps
+// Do something...
+
+// Stop the emulator
+emulator.stop();
+```
+
+## Tools
+
+> (Recording helper script)
 
 ## LICENSE
 
