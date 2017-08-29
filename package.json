@@ -6,7 +6,7 @@
   "scripts": {
     "build": "./node_modules/.bin/babel ./src --out-dir dist",
     "prestart": "npm run build",
-    "start": "node ./dist/example.js",
+    "start": "node ./dist/standalone.js",
     "pretest": "npm run build",
     "test": "./node_modules/.bin/mocha \"dist/**/*.spec.js\""
   },
