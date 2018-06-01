@@ -1,4 +1,5 @@
 const path = require('path');
+const { log, error } = require('../log');
 const CastDeviceEmulator = require('../');
 
 function startEmulator(filepath, cmd) {
