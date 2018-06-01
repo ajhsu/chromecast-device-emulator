@@ -1,0 +1,9 @@
+{
+  "plugins": ["transform-node-env-inline"],
+  "presets": [["env"]],
+  "env": {
+    "production": {
+      "presets": ["minify"]
+    }
+  }
+}

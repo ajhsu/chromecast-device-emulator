@@ -1,0 +1,33 @@
+{
+  "timeline": [{
+    "time": 12250,
+    "ipcMessage": "{\"data\":\"{\\\"applicationId\\\":\\\"7BDF108F\\\",\\\"applicationName\\\":\\\"KKBOX Local Testing App v1.2\\\",\\\"closedCaption\\\":{},\\\"deviceCapabilities\\\":{\\\"bluetooth_supported\\\":false,\\\"display_supported\\\":true,\\\"focus_state_supported\\\":true,\\\"hi_res_audio_supported\\\":false},\\\"launchingSenderId\\\":\\\"e2bd069b-d6d0-7d35-d0cb-fd6287ffebde.45:com.skysoft.kkbox.android-29\\\",\\\"messagesVersion\\\":\\\"1.0\\\",\\\"sessionId\\\":\\\"010c6a19-f5b2-48fc-bf48-c7cafe1da920\\\",\\\"type\\\":\\\"ready\\\",\\\"version\\\":\\\"1.29.104827\\\"}\",\"namespace\":\"urn:x-cast:com.google.cast.system\",\"senderId\":\"SystemSender\"}"
+  }, {
+    "time": 12312,
+    "ipcMessage": "{\"data\":\"{\\\"level\\\":1.0,\\\"muted\\\":false,\\\"type\\\":\\\"volumechanged\\\"}\",\"namespace\":\"urn:x-cast:com.google.cast.system\",\"senderId\":\"SystemSender\"}"
+  }, {
+    "time": 12336,
+    "ipcMessage": "{\"data\":\"{\\\"type\\\":\\\"visibilitychanged\\\"}\",\"namespace\":\"urn:x-cast:com.google.cast.system\",\"senderId\":\"SystemSender\"}"
+  }, {
+    "time": 12341,
+    "ipcMessage": "{\"data\":\"{\\\"type\\\":\\\"standbychanged\\\"}\",\"namespace\":\"urn:x-cast:com.google.cast.system\",\"senderId\":\"SystemSender\"}"
+  }, {
+    "time": 12473,
+    "ipcMessage": "{\"data\":\"{\\\"hdrType\\\":\\\"sdr\\\",\\\"type\\\":\\\"hdroutputtypechanged\\\"}\",\"namespace\":\"urn:x-cast:com.google.cast.system\",\"senderId\":\"SystemSender\"}"
+  }, {
+    "time": 12531,
+    "ipcMessage": "{\"data\":\"{\\\"senderId\\\":\\\"e2bd069b-d6d0-7d35-d0cb-fd6287ffebde.45:com.skysoft.kkbox.android-29\\\",\\\"type\\\":\\\"senderconnected\\\",\\\"userAgent\\\":\\\"Android CastSDK,12685023,SM-N9208,nobleltezt,7.0\\\"}\",\"namespace\":\"urn:x-cast:com.google.cast.system\",\"senderId\":\"SystemSender\"}"
+  }, {
+    "time": 12630,
+    "ipcMessage": "{\"data\":\"{\\\"requestId\\\":1,\\\"type\\\":\\\"GET_STATUS\\\"}\",\"namespace\":\"urn:x-cast:com.google.cast.media\",\"senderId\":\"e2bd069b-d6d0-7d35-d0cb-fd6287ffebde.45:com.skysoft.kkbox.android-29\"}"
+  }, {
+    "time": 12707,
+    "ipcMessage": "{\"data\":\"{\\\"requestId\\\":1,\\\"type\\\":\\\"GET_STATUS\\\"}\",\"namespace\":\"urn:x-cast:com.google.cast.media\",\"senderId\":\"e2bd069b-d6d0-7d35-d0cb-fd6287ffebde.43:com.google.android.gms-27\"}"
+  }, {
+    "time": 13951,
+    "ipcMessage": "{\"data\":\"{\\\"requestId\\\":2,\\\"type\\\":\\\"QUEUE_LOAD\\\",\\\"items\\\":[{\\\"media\\\":{\\\"contentId\\\":\\\"207178635\\\",\\\"streamType\\\":\\\"BUFFERED\\\",\\\"contentType\\\":\\\"audio\\\\/mp3\\\",\\\"metadata\\\":{\\\"metadataType\\\":3,\\\"title\\\":\\\"ONE WAY～on my own～\\\",\\\"trackNumber\\\":207178635,\\\"contentId\\\":\\\"1nc00KqXlS2W00CMW00CM0XL\\\"},\\\"duration\\\":234},\\\"autoplay\\\":true,\\\"startTime\\\":0,\\\"preloadTime\\\":10},{\\\"media\\\":{\\\"contentId\\\":\\\"200144402\\\",\\\"streamType\\\":\\\"BUFFERED\\\",\\\"contentType\\\":\\\"audio\\\\/mp3\\\",\\\"metadata\\\":{\\\"metadataType\\\":3,\\\"title\\\":\\\"Two of us\\\",\\\"trackNumber\\\":200144402,\\\"contentId\\\":\\\"d-b0084H102CBsMeCBsMe0XL\\\"},\\\"duration\\\":292},\\\"autoplay\\\":true,\\\"startTime\\\":0,\\\"preloadTime\\\":10},{\\\"media\\\":{\\\"contentId\\\":\\\"209913592\\\",\\\"streamType\\\":\\\"BUFFERED\\\",\\\"contentType\\\":\\\"audio\\\\/mp3\\\",\\\"metadata\\\":{\\\"metadataType\\\":3,\\\"title\\\":\\\"Three\\\",\\\"trackNumber\\\":209913592,\\\"contentId\\\":\\\"EAl00ALCP-2HaZ.UHaZ.U0XL\\\"},\\\"duration\\\":268},\\\"autoplay\\\":true,\\\"startTime\\\":0,\\\"preloadTime\\\":10}],\\\"repeatMode\\\":\\\"REPEAT_SINGLE\\\",\\\"startIndex\\\":0,\\\"currentTime\\\":9.927,\\\"customData\\\":{\\\"sid\\\":\\\"V0008bwY18500A000000000001SAZnz01CLHpAbED0K135PoQDS001R3vxN43ed\\\",\\\"enc\\\":\\\"u\\\",\\\"ver\\\":\\\"06020082\\\",\\\"os\\\":\\\"android\\\",\\\"osver\\\":\\\"7.0\\\",\\\"lang\\\":\\\"ja\\\",\\\"dist\\\":\\\"0021\\\",\\\"dist2\\\":\\\"0021\\\",\\\"userName\\\":\\\"名前なし\\\",\\\"userAvatarUrl\\\":\\\"https:\\\\/\\\\/i.kfs.io\\\\/muser\\\\/global\\\\/noimg\\\\/cropresize\\\\/180x180.jpg\\\",\\\"playMode\\\":\\\"NORMAL\\\",\\\"playlistTitle\\\":\\\"Sort\\\",\\\"checksum\\\":\\\"91daa8ba0b0ab7cbc94ba12c0bbabd41\\\",\\\"timestamp\\\":\\\"1527759179\\\"}}\",\"namespace\":\"urn:x-cast:com.google.cast.media\",\"senderId\":\"e2bd069b-d6d0-7d35-d0cb-fd6287ffebde.45:com.skysoft.kkbox.android-29\"}"
+  }, {
+    "time": 20981,
+    "ipcMessage": "{\"data\":\"{\\\"requestId\\\":3,\\\"type\\\":\\\"QUEUE_UPDATE\\\",\\\"mediaSessionId\\\":1,\\\"items\\\":[{\\\"media\\\":{\\\"contentId\\\":\\\"200144402\\\",\\\"streamType\\\":\\\"BUFFERED\\\",\\\"contentType\\\":\\\"audio\\\\/mp3\\\",\\\"metadata\\\":{\\\"metadataType\\\":3,\\\"images\\\":[{\\\"url\\\":\\\"https:\\\\/\\\\/i.kfs.io\\\\/album\\\\/jp\\\\/19256597,P\\\\/fit\\\\/500x500.jpg\\\",\\\"width\\\":0,\\\"height\\\":0}],\\\"title\\\":\\\"Two of us\\\",\\\"trackNumber\\\":200144402,\\\"contentId\\\":\\\"d-b0084H102CBsMeCBsMe0XL\\\"},\\\"duration\\\":292},\\\"itemId\\\":2,\\\"autoplay\\\":true,\\\"startTime\\\":0,\\\"preloadTime\\\":10}]}\",\"namespace\":\"urn:x-cast:com.google.cast.media\",\"senderId\":\"e2bd069b-d6d0-7d35-d0cb-fd6287ffebde.45:com.skysoft.kkbox.android-29\"}"
+  }]
+}

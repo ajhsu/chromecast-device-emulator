@@ -1,32 +1,42 @@
 {
   "name": "chromecast-device-emulator",
+  "version": "1.2.0",
   "description": "Testing your chromecast receiver app, without a real-device needed.",
-  "version": "1.1.2",
-  "main": "dist/index.js",
-  "scripts": {
-    "build": "./node_modules/.bin/babel ./src --out-dir dist",
-    "prestart": "npm run build",
-    "start": "node ./dist/standalone.js",
-    "pretest": "npm run build",
-    "test": "./node_modules/.bin/mocha \"dist/**/*.spec.js\""
+  "homepage": "https://github.com/ajhsu/chromecast-device-emulator#readme",
+  "bugs": {
+    "url": "https://github.com/ajhsu/chromecast-device-emulator/issues"
   },
-  "author": "AJ Hsu",
-  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ajhsu/chromecast-device-emulator.git"
   },
-  "bugs": {
-    "url": "https://github.com/ajhsu/chromecast-device-emulator/issues"
+  "license": "MIT",
+  "author": "AJ Hsu <im.ajhsu@gmail.com>",
+  "main": "dist/index.js",
+  "bin": {
+    "chromecast-device-emulator": "./dist/cli/index.js",
+    "cde": "./dist/cli/index.js"
   },
-  "homepage": "https://github.com/ajhsu/chromecast-device-emulator#readme",
+  "scripts": {
+    "build": "babel src --ignore receiver-utils --out-dir dist",
+    "build:receiver-utils": "NODE_ENV=production browserify --transform babelify src/receiver-utils/index.js --outfile dist/receiver-utils.min.js",
+    "pretest": "npm run build",
+    "test": "mocha \"dist/**/*.spec.js\""
+  },
   "dependencies": {
+    "commander": "^2.15.1",
     "ws": "^2.3.1"
   },
   "devDependencies": {
     "ajv": "^4.11.6",
-    "babel": "^5.8.38",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-node-env-inline": "^0.4.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-minify": "^0.4.3",
+    "babelify": "^8.0.0",
+    "browserify": "^16.2.2",
     "chai": "^3.5.0",
-    "mocha": "^3.2.0"
+    "mocha": "^3.5.3"
   }
 }

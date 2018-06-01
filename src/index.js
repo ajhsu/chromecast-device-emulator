@@ -1,6 +1,11 @@
 const WebSocket = require('ws');
+const {
+  log,
+  error
+} = require('./log');
 const Ajv = require('ajv');
 const jsonSchemaValidator = new Ajv();
+
 const serverConfig = {
   port: 8008,
   path: '/v2/ipc'
@@ -12,24 +17,19 @@ class CastDeviceEmulator {
     this.wss = null;
     this.recordedMessages = [];
     this._webSocketMessageHandler = this._webSocketMessageHandler.bind(this);
-    this._webSocketConnectionHandler = this._webSocketConnectionHandler.bind(
-      this
-    );
+    this._webSocketConnectionHandler = this._webSocketConnectionHandler.bind(this);
   }
   loadScenario(scenarioFile) {
-    if (
-      !jsonSchemaValidator.validate(
+    if (!jsonSchemaValidator.validate(
         require('../schemas/scenario.json'),
         scenarioFile
-      )
-    ) {
+      )) {
       throw new Error('Invalid scenario schema!');
     }
     this.recordedMessages = scenarioFile.timeline;
   }
   start(callback) {
-    this.wss = new WebSocket.Server(
-      {
+    this.wss = new WebSocket.Server({
         port: serverConfig.port,
         path: serverConfig.path
       },
@@ -37,11 +37,11 @@ class CastDeviceEmulator {
         // Starting to handle websocket connections
         this.wss.on('connection', this._webSocketConnectionHandler);
         if (!this.opt.silent) {
-          console.log(
-            `Chromecast Device Emulator established a websocket server at port ${serverConfig.port}`
+          log(
+            `Established a websocket server at port ${serverConfig.port}`
           );
-          console.log(
-            'Chromecast Device Emulator is waiting for connections..'
+          log(
+            'Ready for Chromecast receiver connections..'
           );
         }
         if (callback) callback();
@@ -54,18 +54,18 @@ class CastDeviceEmulator {
   }
   close(callback) {
     if (!this.wss) {
-      console.log('There is no websocket existing.');
+      log('There is no websocket existing.');
       return;
     }
     this.wss.close(() => {
       if (!this.opt.silent) {
-        console.log('Chromecast Device Emulator is closed.');
+        log('Chromecast Device Emulator is closed.');
       }
       if (callback) callback();
     });
   }
   _webSocketConnectionHandler(ws) {
-    if (!this.opt.silent) console.log('There is a cast client just connected.');
+    if (!this.opt.silent) log('There is a cast client just connected.');
     // Registering for message handler
     ws.on('message', this._webSocketMessageHandler);
     // Setting-up recorded message callback
@@ -73,14 +73,15 @@ class CastDeviceEmulator {
       const sendRecordedMessage = () => {
         if (ws.readyState === WebSocket.OPEN) {
           ws.send(m.ipcMessage);
+          log('>>', m.ipcMessage);
         }
       };
       setTimeout(sendRecordedMessage, m.time);
     });
   }
   _webSocketMessageHandler(message) {
-    //console.log('received: %s', message);
+    log('<<', message);
   }
 }
 
-export default CastDeviceEmulator;
+module.exports = CastDeviceEmulator;
