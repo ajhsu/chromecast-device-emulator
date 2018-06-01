@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-const path = require('path');
 const program = require('commander');
 const manifest = require('../../package.json');
 const { log, error } = require('../log');
