@@ -12,4 +12,5 @@
   if (!windowObject) return;
   windowObject.cast = windowObject.cast || {};
   windowObject.cast.__platform__ = {};
+  console.log('chromecast-device-emulator: device-polyfill module loaded.');
 })(window);

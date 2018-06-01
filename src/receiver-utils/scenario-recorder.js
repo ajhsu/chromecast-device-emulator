@@ -44,4 +44,5 @@
 
   windowObject.CDE = windowObject.CDE || {};
   windowObject.CDE.exportScenario = exportScenario;
+  console.log('chromecast-device-emulator: scenario-recorder module loaded.');
 })(window);
