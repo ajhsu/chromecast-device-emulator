@@ -6,11 +6,6 @@
    */
   WebSocket.prototype.realSendFunc = WebSocket.prototype.send;
   WebSocket.prototype.send = function(data) {
-    /**
-     * 這邊其實是 instance 第一次呼叫 send method 的時候，
-     * 才會開始監聽 message event，不知道會不會因此漏訊息
-     */
-
     this.realSendFunc(data);
     this.addEventListener(
       'message',
