@@ -24,11 +24,11 @@
     "test": "mocha \"dist/**/*.spec.js\""
   },
   "dependencies": {
+    "ajv": "^4.11.6",
     "commander": "^2.15.1",
     "ws": "^2.3.1"
   },
   "devDependencies": {
-    "ajv": "^4.11.6",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-plugin-transform-node-env-inline": "^0.4.3",
