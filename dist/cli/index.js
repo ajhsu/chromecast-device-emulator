@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 'use strict';
 
-var path = require('path');
 var program = require('commander');
 var manifest = require('../../package.json');
 

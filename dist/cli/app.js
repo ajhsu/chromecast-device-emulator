@@ -1,5 +1,6 @@
 'use strict';
 
+var path = require('path');
 var CastDeviceEmulator = require('../');
 
 function startEmulator(filepath, cmd) {
