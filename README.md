@@ -142,7 +142,7 @@ In order to "RECORD" messages from sender, we created a tool that you can record
 Firstly, you need to place the following script in your receiver app.
 ```html
 <!-- Chromecast Device Emulator's Receiver Utilities -->
-<script src="https://cdn.rawgit.com/ajhsu/chromecast-device-emulator/v1.2.1/dist/receiver-utils.min.js"></script>
+<script src="https://cdn.rawgit.com/ajhsu/chromecast-device-emulator/v1.2.2/dist/receiver-utils.min.js"></script>
 ```
 
 Please make sure that `receiver-utils` placed **BEFORE** google cast SDKs;
@@ -153,7 +153,7 @@ After placed the script tag, your HTML might look like this:
 
 ```html
 <!-- Chromecast Device Emulator's Receiver Utilities -->
-<script src="https://cdn.rawgit.com/ajhsu/chromecast-device-emulator/v1.2.1/dist/receiver-utils.min.js"></script>
+<script src="https://cdn.rawgit.com/ajhsu/chromecast-device-emulator/v1.2.2/dist/receiver-utils.min.js"></script>
 <!-- Cast APIs -->
 <script src="//www.gstatic.com/cast/sdk/libs/receiver/2.0.0/cast_receiver.js"></script>
 <!-- Cast Media Library (CML) -->
