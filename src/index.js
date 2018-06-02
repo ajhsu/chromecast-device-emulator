@@ -1,4 +1,5 @@
 const WebSocket = require('ws');
+const chalk = require('chalk');
 const {
   log,
   error
@@ -70,17 +71,18 @@ class CastDeviceEmulator {
     ws.on('message', this._webSocketMessageHandler);
     // Setting-up recorded message callback
     this.recordedMessages.map(m => {
+      // FIXME: Validate format before send it
       const sendRecordedMessage = () => {
         if (ws.readyState === WebSocket.OPEN) {
           ws.send(m.ipcMessage);
-          log('>>', m.ipcMessage);
+          log(chalk.red('>>'), m.ipcMessage);
         }
       };
       setTimeout(sendRecordedMessage, m.time);
     });
   }
   _webSocketMessageHandler(message) {
-    log('<<', message);
+    log(chalk.green('<<'), message);
   }
 }
 

@@ -5,6 +5,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var WebSocket = require('ws');
+var chalk = require('chalk');
 
 var _require = require('./log'),
     log = _require.log,
@@ -87,10 +88,11 @@ var CastDeviceEmulator = function () {
       ws.on('message', this._webSocketMessageHandler);
       // Setting-up recorded message callback
       this.recordedMessages.map(function (m) {
+        // FIXME: Validate format before send it
         var sendRecordedMessage = function sendRecordedMessage() {
           if (ws.readyState === WebSocket.OPEN) {
             ws.send(m.ipcMessage);
-            log('>>', m.ipcMessage);
+            log(chalk.red('>>'), m.ipcMessage);
           }
         };
         setTimeout(sendRecordedMessage, m.time);
@@ -99,7 +101,7 @@ var CastDeviceEmulator = function () {
   }, {
     key: '_webSocketMessageHandler',
     value: function _webSocketMessageHandler(message) {
-      log('<<', message);
+      log(chalk.green('<<'), message);
     }
   }]);
 
