@@ -1,0 +1,39 @@
+{
+  "timeline": [{
+    "time": 844,
+    "ipcMessage": "{\"data\":\"{\\\"applicationId\\\":\\\"628AC8D3\\\",\\\"applicationName\\\":\\\"CAFV1\\\",\\\"closedCaption\\\":{},\\\"deviceCapabilities\\\":{\\\"bluetooth_supported\\\":true,\\\"display_supported\\\":true,\\\"focus_state_supported\\\":true,\\\"hi_res_audio_supported\\\":false},\\\"launchingSenderId\\\":\\\"7f8b100d-a1fe-e60b-5a35-6feaa22976df.2:sender-l4koe754cbxf\\\",\\\"messagesVersion\\\":\\\"1.0\\\",\\\"sessionId\\\":\\\"46fd154e-f03d-4d58-986d-4998c43639a7\\\",\\\"type\\\":\\\"ready\\\",\\\"version\\\":\\\"1.30.113131\\\"}\",\"namespace\":\"urn:x-cast:com.google.cast.system\",\"senderId\":\"SystemSender\"}"
+  }, {
+    "time": 846,
+    "ipcMessage": "{\"data\":\"{\\\"level\\\":1.0,\\\"muted\\\":false,\\\"type\\\":\\\"volumechanged\\\"}\",\"namespace\":\"urn:x-cast:com.google.cast.system\",\"senderId\":\"SystemSender\"}"
+  }, {
+    "time": 847,
+    "ipcMessage": "{\"data\":\"{\\\"type\\\":\\\"visibilitychanged\\\"}\",\"namespace\":\"urn:x-cast:com.google.cast.system\",\"senderId\":\"SystemSender\"}"
+  }, {
+    "time": 847,
+    "ipcMessage": "{\"data\":\"{\\\"type\\\":\\\"standbychanged\\\"}\",\"namespace\":\"urn:x-cast:com.google.cast.system\",\"senderId\":\"SystemSender\"}"
+  }, {
+    "time": 862,
+    "ipcMessage": "{\"data\":\"{\\\"hdrType\\\":\\\"sdr\\\",\\\"type\\\":\\\"hdroutputtypechanged\\\"}\",\"namespace\":\"urn:x-cast:com.google.cast.system\",\"senderId\":\"SystemSender\"}"
+  }, {
+    "time": 864,
+    "ipcMessage": "{\"data\":\"{\\\"state\\\":\\\"IN_FOCUS\\\",\\\"type\\\":\\\"FOCUS_STATE\\\"}\",\"namespace\":\"urn:x-cast:com.google.cast.cac\",\"senderId\":\"SystemSender\"}"
+  }, {
+    "time": 956,
+    "ipcMessage": "{\"data\":\"{\\\"largeMessageSupported\\\":false,\\\"senderId\\\":\\\"7f8b100d-a1fe-e60b-5a35-6feaa22976df.2:152792770056491611\\\",\\\"type\\\":\\\"senderconnected\\\",\\\"userAgent\\\":\\\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36\\\"}\",\"namespace\":\"urn:x-cast:com.google.cast.system\",\"senderId\":\"SystemSender\"}"
+  }, {
+    "time": 987,
+    "ipcMessage": "{\"data\":\"{\\\"type\\\":\\\"GET_STATUS\\\",\\\"requestId\\\":889570261}\",\"namespace\":\"urn:x-cast:com.google.cast.media\",\"senderId\":\"7f8b100d-a1fe-e60b-5a35-6feaa22976df.2:sender-l4koe754cbxf\"}"
+  }, {
+    "time": 1064,
+    "ipcMessage": "{\"data\":\"{\\\"type\\\":\\\"LOAD\\\",\\\"requestId\\\":889570262,\\\"sessionId\\\":\\\"46fd154e-f03d-4d58-986d-4998c43639a7\\\",\\\"media\\\":{\\\"contentId\\\":\\\"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4\\\",\\\"streamType\\\":\\\"BUFFERED\\\",\\\"contentType\\\":\\\"video/mp4\\\",\\\"metadata\\\":{\\\"type\\\":0,\\\"metadataType\\\":0,\\\"title\\\":\\\"Big Buck Bunny\\\",\\\"images\\\":[{\\\"url\\\":\\\"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg\\\"}]}},\\\"autoplay\\\":true}\",\"namespace\":\"urn:x-cast:com.google.cast.media\",\"senderId\":\"7f8b100d-a1fe-e60b-5a35-6feaa22976df.2:152792770056491611\"}"
+  }, {
+    "time": 2512,
+    "ipcMessage": "{\"data\":\"{\\\"currentTime\\\":195.756235,\\\"type\\\":\\\"SEEK\\\",\\\"mediaSessionId\\\":1,\\\"sessionId\\\":\\\"46fd154e-f03d-4d58-986d-4998c43639a7\\\",\\\"requestId\\\":889570264}\",\"namespace\":\"urn:x-cast:com.google.cast.media\",\"senderId\":\"7f8b100d-a1fe-e60b-5a35-6feaa22976df.2:152792770056491611\"}"
+  }, {
+    "time": 22327,
+    "ipcMessage": "{\"data\":\"{\\\"currentTime\\\":274,\\\"type\\\":\\\"SEEK\\\",\\\"mediaSessionId\\\":1,\\\"sessionId\\\":\\\"46fd154e-f03d-4d58-986d-4998c43639a7\\\",\\\"requestId\\\":889570266}\",\"namespace\":\"urn:x-cast:com.google.cast.media\",\"senderId\":\"7f8b100d-a1fe-e60b-5a35-6feaa22976df.2:152792770056491611\"}"
+  }, {
+    "time": 28241,
+    "ipcMessage": "{\"data\":\"{\\\"currentTime\\\":376,\\\"type\\\":\\\"SEEK\\\",\\\"mediaSessionId\\\":1,\\\"sessionId\\\":\\\"46fd154e-f03d-4d58-986d-4998c43639a7\\\",\\\"requestId\\\":889570267}\",\"namespace\":\"urn:x-cast:com.google.cast.media\",\"senderId\":\"7f8b100d-a1fe-e60b-5a35-6feaa22976df.2:152792770056491611\"}"
+  }]
+}
