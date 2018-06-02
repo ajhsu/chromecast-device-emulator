@@ -1,6 +1,6 @@
 {
   "name": "chromecast-device-emulator",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "Testing your chromecast receiver app, without a real-device needed.",
   "homepage": "https://github.com/ajhsu/chromecast-device-emulator#readme",
   "bugs": {
