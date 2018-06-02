@@ -180,6 +180,11 @@ chromecast-device-emulator: scenario-recorder module loaded.
 
 Which means that you're ready to go.
 
+> NOTE:  
+> Since the `receiver-utils` needs to record messages from WebSocket,  
+> it will doing something hacky on your receiver app.  
+> So please remember to remove the above script tag on your production build.
+
 #### 2. Start to record your scenario
 Once you placed the message recorder into your receiver app, you can start your user scenario on real devices, like casting, pausing, changing volume, seeking .. etc.
 Each of these commands will eventually be recorded into our scenario JSON file.
