@@ -11,11 +11,13 @@ Testing your chromecast receiver app, without a real-device needed.
 
 ## What is this?
 
-While testing your Chromecast Receiver App on a physical Chromecast device is the only way to ensure your app working correctly; You might need to make your app public accessible at first (and it also needs to be HTTPS). 
+While testing your Chromecast Receiver App on a real Google Cast device, is the only way to ensure your app working correctly;
+You need to make your app public accessible (and it also needs to be HTTPS).
 
-So whenever you're going to test your receiver app, you may need to edit your receiver app on a local machine then deploy to an accessible space back and forth... which is time-wasting while developing a receiver app.
+It means that whenever you're going to test your receiver app, you need to deploy your web app on every single iteration, which is time-wasting.
 
-Chromecast Device Emulator is designed for solving this case so that you can test your chromecast receiver app right on your local machine. Which means you can avoid lots of shitty works when you're developing your apps.
+The emulator is designed for solving this case, so that you can test your cast receiver app right on your local machine.
+Which means you can avoid lots of redundant works from your development.
 
 ## How it works?
 
@@ -23,22 +25,6 @@ What a real chromecast device do, is providing a chromium browser with a socket 
 
 So we can simply emulate the same context by creating a socket server in the background while we're developing our apps on local machine (e.g. your laptop).
 
-### Benefits of developing with an Emulator
-
-#### 1. Running your receiver app on local machine.
-
-You can developing your receiver app with a device that runing much faster than Chromecast 1/2/Ultra.
-
-#### 2. Debugging your receiver app on local machine
-
-You don't need to do remote debugging via Chrome inspector anymore,
-and take the advantage of Chrome DevTools during your development, yay!
-
-#### 3. Debugging multiple receiver app at same time.
-
-You can test your receiver app in parallel.
-
-#### 4. Running end-to-end testing in CI system.
 
 ## Usage
 
@@ -219,6 +205,23 @@ $ chromecast-device-emulator start scenario.json
 Please see how to start an emulator from [Usage](#usage) chapter for details.
 
 *Happy casting!*
+
+## Benefits of developing with an Emulator
+
+#### 1. Running your receiver app on local machine.
+
+You can developing your receiver app with a device that runing much faster than Chromecast 1/2/Ultra.
+
+#### 2. Debugging your receiver app on local machine
+
+You don't need to do remote debugging via Chrome inspector anymore,
+and take the advantage of Chrome DevTools during your development, yay!
+
+#### 3. Debugging multiple receiver app at same time.
+
+You can test your receiver app in parallel.
+
+#### 4. Running end-to-end testing in CI system.
 
 ## LICENSE
 
