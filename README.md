@@ -25,6 +25,9 @@ What a real chromecast device do, is providing a chromium browser with a socket 
 
 So we can simply emulate the same context by creating a socket server in the background while we're developing our apps on local machine (e.g. your laptop).
 
+<p align='left'>
+<img src='https://cdn.rawgit.com/ajhsu/chromecast-device-emulator/49d15c0d/diagram.svg' alt='Diagram of Emulator'>
+</p>
 
 ## Usage
 
