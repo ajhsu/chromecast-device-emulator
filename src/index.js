@@ -1,9 +1,6 @@
 const WebSocket = require('ws');
 const chalk = require('chalk');
-const {
-  log,
-  error
-} = require('./log');
+const { log, error } = require('./log');
 
 /**
  * The JSON Schema validator
@@ -20,8 +17,8 @@ const serverConfig = {
 };
 
 class CastDeviceEmulator {
-  constructor(opt = {}) {
-    this.opt = opt;
+  constructor(options = {}) {
+    this.options = options;
 
     /**
      * WebSocker server instance.
@@ -44,10 +41,7 @@ class CastDeviceEmulator {
    * Load the specific scenario file
    */
   loadScenario(scenarioFile) {
-    if (!jsonSchemaValidator.validate(
-        require('../schemas/scenario.json'),
-        scenarioFile
-      )) {
+    if (!jsonSchemaValidator.validate(require('../schemas/scenario.json'), scenarioFile)) {
       throw new Error('Invalid scenario schema!');
     }
     this.recordedMessages = scenarioFile.timeline;
@@ -57,26 +51,23 @@ class CastDeviceEmulator {
    * Startup the emulator
    */
   start(callback) {
-    this.wss = new WebSocket.Server({
+    this.wss = new WebSocket.Server(
+      {
         port: serverConfig.port,
         path: serverConfig.path
       },
-      () => {
       /**
        * When WebSocket server start listening,
        * we're going to listen to connection event as well.
        */
+      (function onListeningCallback() {
         this.wss.on('connection', this._webSocketConnectionHandler);
-        if (!this.opt.silent) {
-          log(
-            `Established a websocket server at port ${serverConfig.port}`
-          );
-          log(
-            'Ready for Chromecast receiver connections..'
-          );
+        if (!this.options.silent) {
+          log(`Established a websocket server at port ${serverConfig.port}`);
+          log('Ready for Chromecast receiver connections..');
         }
         if (callback) callback();
-      }
+      }).bind(this)
     );
   }
 
@@ -97,7 +88,7 @@ class CastDeviceEmulator {
       return;
     }
     this.wss.close(() => {
-      if (!this.opt.silent) {
+      if (!this.options.silent) {
         log('Chromecast Device Emulator is closed.');
       }
       if (callback) callback();
@@ -108,7 +99,7 @@ class CastDeviceEmulator {
    * Handle incoming WebSocket connections
    */
   _webSocketConnectionHandler(ws) {
-    if (!this.opt.silent) log('There is a cast client just connected.');
+    if (!this.options.silent) log('There is a cast client just connected.');
     /**
      * Listen to message events on each socket connection
      */
