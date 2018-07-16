@@ -14,7 +14,7 @@ we need to insert the `receiver-utils` into your CAF receiver app.
 
 ```html
 <!-- Chromecast Device Emulator's Receiver Utilities -->
-<script src="https://cdn.rawgit.com/ajhsu/chromecast-device-emulator/v1.2.6/dist/receiver-utils.min.js"></script>
+<script src="https://cdn.rawgit.com/ajhsu/chromecast-device-emulator/v1.2.7/dist/receiver-utils.min.js"></script>
 <!-- CAF -->
 <script type="text/javascript" src="//www.gstatic.com/cast/sdk/libs/caf_receiver/v3/cast_receiver_framework.js"></script>
 ```
