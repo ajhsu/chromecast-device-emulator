@@ -11,9 +11,17 @@ var _require = require('./log'),
     log = _require.log,
     error = _require.error;
 
+/**
+ * The JSON Schema validator
+ */
+
+
 var Ajv = require('ajv');
 var jsonSchemaValidator = new Ajv();
 
+/**
+ * Configuration for WebSocket server
+ */
 var serverConfig = {
   port: 8008,
   path: '/v2/ipc'
@@ -21,16 +29,33 @@ var serverConfig = {
 
 var CastDeviceEmulator = function () {
   function CastDeviceEmulator() {
-    var opt = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
     _classCallCheck(this, CastDeviceEmulator);
 
-    this.opt = opt;
+    this.options = options;
+
+    /**
+     * WebSocker server instance.
+     */
     this.wss = null;
+
+    /**
+     * The recorded messages that we're going to serve.
+     */
     this.recordedMessages = [];
+
+    /**
+     * Event handlers for WebSocket server
+     */
     this._webSocketMessageHandler = this._webSocketMessageHandler.bind(this);
     this._webSocketConnectionHandler = this._webSocketConnectionHandler.bind(this);
   }
+
+  /**
+   * Load the specific scenario file
+   */
+
 
   _createClass(CastDeviceEmulator, [{
     key: 'loadScenario',
@@ -40,53 +65,80 @@ var CastDeviceEmulator = function () {
       }
       this.recordedMessages = scenarioFile.timeline;
     }
+
+    /**
+     * Startup the emulator
+     */
+
   }, {
     key: 'start',
     value: function start(callback) {
-      var _this = this;
-
       this.wss = new WebSocket.Server({
         port: serverConfig.port,
         path: serverConfig.path
-      }, function () {
-        // Starting to handle websocket connections
-        _this.wss.on('connection', _this._webSocketConnectionHandler);
-        if (!_this.opt.silent) {
+      },
+      /**
+       * When WebSocket server start listening,
+       * we're going to listen to connection event as well.
+       */
+      function onListeningCallback() {
+        this.wss.on('connection', this._webSocketConnectionHandler);
+        if (!this.options.silent) {
           log('Established a websocket server at port ' + serverConfig.port);
           log('Ready for Chromecast receiver connections..');
         }
         if (callback) callback();
-      });
+      }.bind(this));
     }
+
+    /**
+     * Stop handling events from WebSocket server
+     */
+
   }, {
     key: 'stop',
     value: function stop() {
       this.wss.removeAllListeners('message');
       this.wss.removeAllListeners('connection');
     }
+
+    /**
+     * Close the WebSocket server
+     */
+
   }, {
     key: 'close',
     value: function close(callback) {
-      var _this2 = this;
+      var _this = this;
 
       if (!this.wss) {
         log('There is no websocket existing.');
         return;
       }
       this.wss.close(function () {
-        if (!_this2.opt.silent) {
+        if (!_this.options.silent) {
           log('Chromecast Device Emulator is closed.');
         }
         if (callback) callback();
       });
     }
+
+    /**
+     * Handle incoming WebSocket connections
+     */
+
   }, {
     key: '_webSocketConnectionHandler',
     value: function _webSocketConnectionHandler(ws) {
-      if (!this.opt.silent) log('There is a cast client just connected.');
-      // Registering for message handler
+      if (!this.options.silent) log('There is a cast client just connected.');
+      /**
+       * Listen to message events on each socket connection
+       */
       ws.on('message', this._webSocketMessageHandler);
-      // Setting-up recorded message callback
+      /**
+       * Iterate over the recorded messages
+       * and set a triggering timer for every single message.
+       */
       this.recordedMessages.map(function (m) {
         // FIXME: Validate format before send it
         var sendRecordedMessage = function sendRecordedMessage() {
@@ -98,6 +150,11 @@ var CastDeviceEmulator = function () {
         setTimeout(sendRecordedMessage, m.time);
       });
     }
+
+    /**
+     * Handle incoming WebSocket messages
+     */
+
   }, {
     key: '_webSocketMessageHandler',
     value: function _webSocketMessageHandler(message) {
