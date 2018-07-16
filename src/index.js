@@ -4,9 +4,16 @@ const {
   log,
   error
 } = require('./log');
+
+/**
+ * The JSON Schema validator
+ */
 const Ajv = require('ajv');
 const jsonSchemaValidator = new Ajv();
 
+/**
+ * Configuration for WebSocket server
+ */
 const serverConfig = {
   port: 8008,
   path: '/v2/ipc'
@@ -15,11 +22,27 @@ const serverConfig = {
 class CastDeviceEmulator {
   constructor(opt = {}) {
     this.opt = opt;
+
+    /**
+     * WebSocker server instance.
+     */
     this.wss = null;
+
+    /**
+     * The recorded messages that we're going to serve.
+     */
     this.recordedMessages = [];
+
+    /**
+     * Event handlers for WebSocket server
+     */
     this._webSocketMessageHandler = this._webSocketMessageHandler.bind(this);
     this._webSocketConnectionHandler = this._webSocketConnectionHandler.bind(this);
   }
+
+  /**
+   * Load the specific scenario file
+   */
   loadScenario(scenarioFile) {
     if (!jsonSchemaValidator.validate(
         require('../schemas/scenario.json'),
@@ -29,13 +52,20 @@ class CastDeviceEmulator {
     }
     this.recordedMessages = scenarioFile.timeline;
   }
+
+  /**
+   * Startup the emulator
+   */
   start(callback) {
     this.wss = new WebSocket.Server({
         port: serverConfig.port,
         path: serverConfig.path
       },
       () => {
-        // Starting to handle websocket connections
+      /**
+       * When WebSocket server start listening,
+       * we're going to listen to connection event as well.
+       */
         this.wss.on('connection', this._webSocketConnectionHandler);
         if (!this.opt.silent) {
           log(
@@ -49,10 +79,18 @@ class CastDeviceEmulator {
       }
     );
   }
+
+  /**
+   * Stop handling events from WebSocket server
+   */
   stop() {
     this.wss.removeAllListeners('message');
     this.wss.removeAllListeners('connection');
   }
+
+  /**
+   * Close the WebSocket server
+   */
   close(callback) {
     if (!this.wss) {
       log('There is no websocket existing.');
@@ -65,11 +103,20 @@ class CastDeviceEmulator {
       if (callback) callback();
     });
   }
+
+  /**
+   * Handle incoming WebSocket connections
+   */
   _webSocketConnectionHandler(ws) {
     if (!this.opt.silent) log('There is a cast client just connected.');
-    // Registering for message handler
+    /**
+     * Listen to message events on each socket connection
+     */
     ws.on('message', this._webSocketMessageHandler);
-    // Setting-up recorded message callback
+    /**
+     * Iterate over the recorded messages
+     * and set a triggering timer for every single message.
+     */
     this.recordedMessages.map(m => {
       // FIXME: Validate format before send it
       const sendRecordedMessage = () => {
@@ -81,6 +128,10 @@ class CastDeviceEmulator {
       setTimeout(sendRecordedMessage, m.time);
     });
   }
+
+  /**
+   * Handle incoming WebSocket messages
+   */
   _webSocketMessageHandler(message) {
     log(chalk.green('<<'), message);
   }
