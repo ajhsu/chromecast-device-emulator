@@ -26,7 +26,7 @@ What a real chromecast device do, is providing a chromium browser with a socket 
 So we can simply emulate the same context by creating a socket server in the background while we're developing our apps on local machine (e.g. your laptop).
 
 <p align='left'>
-<img src='https://cdn.rawgit.com/ajhsu/chromecast-device-emulator/5e0051b0/diagram.svg' alt='Diagram of Emulator'>
+<img src='https://unpkg.com/chromecast-device-emulator/diagram.svg' alt='Diagram of Emulator'>
 </p>
 
 ## Usage
@@ -139,7 +139,7 @@ In order to "RECORD" messages from sender, we created a tool that you can record
 Firstly, you need to place the following script in your receiver app.
 ```html
 <!-- Chromecast Device Emulator's Receiver Utilities -->
-<script src="https://cdn.rawgit.com/ajhsu/chromecast-device-emulator/v1.2.7/dist/receiver-utils.min.js"></script>
+<script src="https://unpkg.com/chromecast-device-emulator/dist/receiver-utils.min.js"></script>
 ```
 
 Please make sure that `receiver-utils` placed **BEFORE** google cast SDKs;
@@ -150,7 +150,7 @@ After placed the script tag, your HTML might look like this:
 
 ```html
 <!-- Chromecast Device Emulator's Receiver Utilities -->
-<script src="https://cdn.rawgit.com/ajhsu/chromecast-device-emulator/v1.2.7/dist/receiver-utils.min.js"></script>
+<script src="https://unpkg.com/chromecast-device-emulator/dist/receiver-utils.min.js"></script>
 <!-- Cast APIs -->
 <script src="//www.gstatic.com/cast/sdk/libs/receiver/2.0.0/cast_receiver.js"></script>
 <!-- Cast Media Library (CML) -->
