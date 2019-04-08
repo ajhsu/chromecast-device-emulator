@@ -7,23 +7,22 @@ Testing your chromecast receiver app, without a real-device needed.
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
 ## TL;DR
-**Chromecast Device Emulator** is a set of tools that enables you to develop, run and test your chromecast receiver app right on your local machine.
+**Chromecast Device Emulator** is a set of tools that enables you to develop, run, and test your chromecast receiver app right on your local machine.
 
 ## What is this?
+So far the only way to test your receiver app is to run on a Google Cast device (e.g. Chromecast, Google Home). Also, you have to make sure that your app is public accessible via an HTTPS connection.
 
-While testing your Chromecast Receiver App on a real Google Cast device, is the only way to ensure your app working correctly;
-You need to make your app public accessible (and it also needs to be HTTPS).
+It turns out whenever you're try to test the receiver app, you have to deploy the application every single time; This kind of deploy-and-debug routine could be redundant and time-wasting.
 
-It means that whenever you're going to test your receiver app, you need to deploy your web app on every single iteration, which is time-wasting.
-
-The emulator is designed for solving this case, so that you can test your cast receiver app right on your local machine.
-Which means you can avoid lots of redundant works from your development.
+The emulator is designed for letting developers getting away from this, by emulating a Google Cast right on your local machine.
 
 ## How it works?
 
-What a real chromecast device do, is providing a chromium browser with a socket server for handing over IPC messages from the sender(s) to our receiver behind the scene.
+Before getting started, we have to understand how the emulator works:
 
-So we can simply emulate the same context by creating a socket server in the background while we're developing our apps on local machine (e.g. your laptop).
+What a Google Cast device do, is providing a chromium browser with a socket server that handing over IPC messages between sender(s) and receiver.
+
+So we can emulate the same context by creating a socket server in the background while we're developing receiver app on a local machine (e.g. your laptop).
 
 <p align='left'>
 <img src='https://unpkg.com/chromecast-device-emulator/diagram.svg' alt='Diagram of Emulator'>
@@ -31,21 +30,21 @@ So we can simply emulate the same context by creating a socket server in the bac
 
 ## Usage
 
-There are two ways to use the emulator:
+There're two types of usage:
 
-1. CLI: Running the emulator as CLI, ideal for local development.
+1. CLI: Running the emulator as a CLI. Ideal for local development.
 
-2. Node API: Install `chromecast-device-emulator` as your dependency, ideal for test automation.
+2. Node API: Install `chromecast-device-emulator` as your dependency. Ideal for integrating your test automation.
 
 ### 1. CLI
 
-Install executable npm package globally
+To run as a CLI, we can install executable npm package globally:
 
 ```bash
 $ npm install chromecast-device-emulator -g
 ```
 
-Startup the emulator with a given [scenario json file](#what-is-a-scenario-json-file)
+Startup the emulator with a [pre-recorded scenario json file](#what-is-a-scenario-json-file)
 
 ```bash
 $ chromecast-device-emulator start scenario.json
@@ -56,36 +55,33 @@ Or `cde` for short
 $ cde start scenario.json
 ```
 
-The emulator is up and will serving at port 8008.
+The emulator will up and serve at port 8008 for local development.
 
-Node that the emulator will create a connection for each of chromecast receiver apps,
-
-so you are able to test multiple receiver apps at the same time.
+> Note that the emulator will establish a new connection for each receiver app so that you can test multiple receiver apps at the same time.
 
 ### 2. Node API
 
-Install `chromecast-device-emulator` as your dependency
-
+To use as a node package, you can install as your dependency:
 ```bash
 npm install chromecast-device-emulator --save-dev
 ```
 
-Import and create an emulator.
+After that, we can import the package and create an emulator.
 
 ```javascript
 var CastDeviceEmulator = require('chromecast-device-emulator');
 
-// Create a new instance of emulator
+// Create a new instance
 var emulator = new CastDeviceEmulator();
 ```
 
-Load and start to serve with your custom [scenario JSON file](#what-is-a-scenario-json-file)
+Load and serve your [pre-recorded scenario JSON file](#what-is-a-scenario-json-file)
 
 ```javascript
 // Load pre-recorded scenario
 emulator.loadScenario(require('./scenario.json'));
 
-// Start the emulator
+// Startup the emulator
 emulator.start();
 
 // Server is up for receiver app
@@ -95,20 +91,16 @@ emulator.start();
 emulator.stop();
 ```
 
-## What is a Scenario JSON file?
+## What is a pre-recorded scenario JSON file?
 
-Since what emulator did, is simply "replay" the IPC messages from sender to your receiver app.
-It means that you have to "record" from the REAL devices to get these messages.
+What emulator did, is try to **REPLAY** the IPC messages between sender and receiver. Which means that you have to **PRE-RECORD** from a real Google Cast device to get these IPC messages.
 
 *(See [The IPC Message Recorder](#record-your-scenario-with-ipc-message-recorder) chapter for details)*
 
-From receiver app was booted, until it was closed;
-Each of IPC message between sender and receiver will be recorded into one single JSON file, with timestamp.
-So that the emulator could "replay" these message at the right time.
+From receiver app booted until it was closed; Each of IPC message between sender and receiver should be recorded into one single JSON file with timestamps.
+By doing so, the emulator is able to **REPLAY** these message when we needed it. And we called it a "Scenario JSON file".
 
-And we called it a "Scenario JSON file".
-
-A simple scenario JSON will looks like this:
+A simple scenario JSON will look like this:
 ```json
 {
   "timeline": [
@@ -132,19 +124,17 @@ A simple scenario JSON will looks like this:
 ## Receiver Utilities
 
 ### Record your scenario with IPC Message Recorder
-In order to "RECORD" messages from sender, we created a tool that you can record these messages from REAL cast devices.
+In order to **PRE-RECORD** messages from sender, we've created a tool that you can intercept these messages from a physical Google Cast device by following steps:
 
 #### 1. Add `receiver-utils` script into your receiver app
 
-Firstly, you need to place the following script in your receiver app.
+First, you need to place the following script tag into your receiver app.
 ```html
 <!-- Chromecast Device Emulator's Receiver Utilities -->
 <script src="https://unpkg.com/chromecast-device-emulator/dist/receiver-utils.min.js"></script>
 ```
 
-Please make sure that `receiver-utils` placed **BEFORE** google cast SDKs;
-
-So that the message recorder can work correctly.
+Please make sure that `receiver-utils` was placed **BEFORE** the google cast SDKs; So that the message recorder can work correctly.
 
 After placed the script tag, your HTML might look like this:
 
@@ -157,7 +147,7 @@ After placed the script tag, your HTML might look like this:
 <script src="//www.gstatic.com/cast/sdk/libs/mediaplayer/1.0.0/media_player.js"></script>
 ```
 
-Once you are loaded the script correctly, you should see these message from the console via remote debugging:
+Once you are placed the script tag correctly, you should see the following debug message in your console (via remote debugging):
 
 (If you don't know how to remote debug, see [how to remote debug](https://developers.google.com/cast/docs/debugging) on your cast device)
 
@@ -167,21 +157,21 @@ chromecast-device-emulator: device-polyfill module loaded.
 chromecast-device-emulator: scenario-recorder module loaded.
 ```
 
-Which means that you're ready to go.
+It means you're ready to go!
 
 > NOTE:  
-> Since the `receiver-utils` needs to record messages from WebSocket,  
-> it will doing something hacky on your receiver app.  
-> So please remember to remove the above script tag on your production build.
+> Since the `receiver-utils` need to pre-record messages from WebSocket,  
+> it makes some hacky modification onto your receiver app during the runtime.  
+> So please remember to remove the above script tag from your production build.
 
 #### 2. Start to record your scenario
-Once you placed the message recorder into your receiver app, you can start your user scenario on real devices, like casting, pausing, changing volume, seeking .. etc.
-Each of these commands will eventually be recorded into our scenario JSON file.
+Once you placed the message recorder into your receiver app, you can start the user scenario on the physical device (e.g. casting to the device, pausing a video, changing the volume, seeking for specific progress).
+Each of the user behavior/interaction will be recorded in the scenario JSON file.
 
 #### 3. Export scenario JSON
-Once you've finished your user scenario, you are ready to export your scenario JSON from Chrome DevTool via remote debugging.
+Once you've finished your user scenario, you are ready to export the scenario JSON from Chrome DevTool:
 
-Open up you console drawer, and type `CDE.exportScenario()` to export the scenario JSON.
+Open up your console drawer and type `CDE.exportScenario()` to export the scenario JSON.
 
 Then you will get a HUGE JSON output like this:
 
@@ -193,38 +183,40 @@ Then you will get a HUGE JSON output like this:
 \"}"}]}
 ```
 
-Then you can just simply copy and save it into a JSON file, and we will serve it with emulator later.
+Just copy and save it into a plain JSON file, and we will need to serve the file later with the emulator.
 
 #### 4. Serve your scenario JSON file with emulator
 
-Now, we got a scenario JSON file from real cast device.
+Now, we got a scenario JSON file from Google Cast device.
 
-So we're ready to serve and "replay" the scenario with the emulator simply like:
+So we're ready to serve and "replay" the scenario with the emulator by running:
 
 ```bash
 $ chromecast-device-emulator start scenario.json
 ```
 
-Please see how to start an emulator from [Usage](#usage) chapter for details.
+That's all! The emulator is now running in the background for you. Try to open up your receiver app on your local machine and see if the receiver is communicating with emulator correctly.
 
 *Happy casting!*
 
-## Benefits of developing with an Emulator
+## Few benefits from developing with emulator
 
-#### 1. Running your receiver app on local machine.
+#### 1. Able to run your receiver app on the local machine.
 
-You can developing your receiver app with a device that runing much faster than Chromecast 1/2/Ultra.
+You can test the receiver app with your local machine that runs 100x faster than a physical Google Case device (e.g. Chromecast 1/2/Ultra)
 
 #### 2. Debugging your receiver app on local machine
 
-You don't need to do remote debugging via Chrome inspector anymore,
-and take the advantage of Chrome DevTools during your development, yay!
+You don't need to do remote debugging via Chrome inspector anymore;
+And you can take advantage of Chrome DevTools during the local development.
 
-#### 3. Debugging multiple receiver app at same time.
+#### 3. Debugging multiple receiver apps at the same time.
 
 You can test your receiver app in parallel.
 
-#### 4. Running end-to-end testing in CI system.
+#### 4. Running end-to-end testing in your continuous integration system.
+
+Once we jump off our runtime from physical Google Cast devices, we're able to do end-to-end testing right on your local machine; And if you're able to run on your local machine, why not integrate with your CI build process?
 
 ## LICENSE
 
