@@ -1,8 +1,8 @@
-const path = require('path');
-const { log, error } = require('../log');
-const CastDeviceEmulator = require('../');
+import path from 'path';
+import { log, error } from '../log';
+import CastDeviceEmulator from '../';
 
-function startEmulator(filepath, cmd) {
+export function startEmulator(filepath: string, cmd: any) {
   const fullPath = path.resolve(process.cwd(), filepath);
   const emulator = new CastDeviceEmulator();
   try {

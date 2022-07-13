@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-const program = require('commander');
-const manifest = require('../../package.json');
-const { log, error } = require('../log');
-const { startEmulator } = require('./app');
+import program from 'commander';
+import manifest from '../../package.json';
+import { log, error } from '../log';
+import { startEmulator } from './app';
 
 program
   .name(manifest.name)

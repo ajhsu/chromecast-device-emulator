@@ -1,3 +1,5 @@
+import { ChromecastMessage } from "../types";
+
 (function(windowObject) {
   if (!windowObject) return;
 
@@ -6,7 +8,7 @@
    */
   WebSocket.prototype.realSendFunc = WebSocket.prototype.send;
   WebSocket.prototype.send = function(data) {
-    this.realSendFunc(data);
+    this.realSendFunc?.(data);
     this.addEventListener(
       'message',
       function(message) {
@@ -17,14 +19,14 @@
       false
     );
     this.send = function(data) {
-      this.realSendFunc(data);
+      this.realSendFunc?.(data);
     };
   };
 
   const startup = new Date().getTime();
-  const messageQueue = [];
+  const messageQueue: Array<ChromecastMessage> = [];
 
-  function pushMessage(message) {
+  function pushMessage(message: ChromecastMessage) {
     const now = new Date().getTime();
     const elapsed = now - startup;
     messageQueue.push({
