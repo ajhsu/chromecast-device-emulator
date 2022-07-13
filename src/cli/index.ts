@@ -2,7 +2,6 @@
 
 import program from 'commander';
 import manifest from '../../package.json';
-import { log, error } from '../log';
 import { startEmulator } from './app';
 
 program

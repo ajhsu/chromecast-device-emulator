@@ -1,6 +1,6 @@
 import WS from 'ws';
 import chalk from 'chalk';
-import { log, error } from './log';
+import { log } from './log';
 
 /**
  * The JSON Schema validator

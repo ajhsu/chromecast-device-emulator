@@ -2,7 +2,7 @@ import path from 'path';
 import { log, error } from '../log';
 import CastDeviceEmulator from '../';
 
-export function startEmulator(filepath: string, cmd: any) {
+export function startEmulator(filepath: string) {
   const fullPath = path.resolve(process.cwd(), filepath);
   const emulator = new CastDeviceEmulator();
   try {

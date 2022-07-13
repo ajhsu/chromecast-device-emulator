@@ -4,7 +4,6 @@ import Ajv from 'ajv';
 
 const jsonSchemaValidator = new Ajv();
 import {
-  assert,
   expect
 } from 'chai';
 
