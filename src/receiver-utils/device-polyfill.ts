@@ -8,6 +8,7 @@
  * Note that you don't need to add this polyfill file in production,
  *  this polyfill will be only needed in developement.
  */
+
 (function(windowObject) {
   if (!windowObject) return;
   windowObject.cast = windowObject.cast || {};

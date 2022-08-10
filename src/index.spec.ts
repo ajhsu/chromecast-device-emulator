@@ -1,12 +1,11 @@
-const CastDeviceEmulator = require('./');
-const WebSocket = require('ws');
-const Ajv = require('ajv');
+import CastDeviceEmulator  from'./';
+import WS from 'ws';
+import Ajv from 'ajv';
 
 const jsonSchemaValidator = new Ajv();
-const {
-  assert,
+import {
   expect
-} = require('chai');
+} from 'chai';
 
 describe('CastDeviceEmulator', function () {
   describe('Methods existance', function () {
@@ -68,7 +67,8 @@ describe('CastDeviceEmulator', function () {
       emulator.start();
 
       // Trying to mimic client behavior
-      const wsc = new WebSocket('ws://localhost:8008/v2/ipc');
+      const wsc = new WS('ws://localhost:8008/v2/ipc');
+      
       wsc.on('open', function open() {
         // Emit start-up messages once websocket connection is established.
         const MESSAGE = {
@@ -82,7 +82,7 @@ describe('CastDeviceEmulator', function () {
       });
       wsc.on('message', function incoming(message, flags) {
         // console.log('wsc received:', message);
-        const incomingMessageObject = JSON.parse(message);
+        const incomingMessageObject = JSON.parse(message.toString());
         const dataProperty = JSON.parse(incomingMessageObject.data);
         const typeProperty = dataProperty.type;
 
