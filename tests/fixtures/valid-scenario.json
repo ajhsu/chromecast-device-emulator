@@ -1,0 +1,36 @@
+{
+  "timeline": [
+    {
+      "time": 100,
+      "ipcMessage": "{\"data\":\"{\\\"applicationId\\\":\\\"TEST1234\\\",\\\"applicationName\\\":\\\"Acceptance Test App\\\",\\\"closedCaption\\\":{},\\\"deviceCapabilities\\\":{\\\"bluetooth_supported\\\":false,\\\"display_supported\\\":true},\\\"launchingSenderId\\\":\\\"test-sender-id.1:com.test.app-1\\\",\\\"messagesVersion\\\":\\\"1.0\\\",\\\"sessionId\\\":\\\"test-session-001\\\",\\\"type\\\":\\\"ready\\\",\\\"version\\\":\\\"1.30.000000\\\"}\",\"namespace\":\"urn:x-cast:com.google.cast.system\",\"senderId\":\"SystemSender\"}"
+    },
+    {
+      "time": 150,
+      "ipcMessage": "{\"data\":\"{\\\"level\\\":1.0,\\\"muted\\\":false,\\\"type\\\":\\\"volumechanged\\\"}\",\"namespace\":\"urn:x-cast:com.google.cast.system\",\"senderId\":\"SystemSender\"}"
+    },
+    {
+      "time": 200,
+      "ipcMessage": "{\"data\":\"{\\\"type\\\":\\\"visibilitychanged\\\"}\",\"namespace\":\"urn:x-cast:com.google.cast.system\",\"senderId\":\"SystemSender\"}"
+    },
+    {
+      "time": 250,
+      "ipcMessage": "{\"data\":\"{\\\"type\\\":\\\"standbychanged\\\"}\",\"namespace\":\"urn:x-cast:com.google.cast.system\",\"senderId\":\"SystemSender\"}"
+    },
+    {
+      "time": 300,
+      "ipcMessage": "{\"data\":\"{\\\"senderId\\\":\\\"test-sender-id.1:com.test.app-1\\\",\\\"type\\\":\\\"senderconnected\\\",\\\"userAgent\\\":\\\"Test/1.0\\\"}\",\"namespace\":\"urn:x-cast:com.google.cast.system\",\"senderId\":\"SystemSender\"}"
+    },
+    {
+      "time": 400,
+      "ipcMessage": "{\"data\":\"{\\\"requestId\\\":1,\\\"type\\\":\\\"GET_STATUS\\\"}\",\"namespace\":\"urn:x-cast:com.google.cast.media\",\"senderId\":\"test-sender-id.1:com.test.app-1\"}"
+    },
+    {
+      "time": 500,
+      "ipcMessage": "{\"data\":\"{\\\"requestId\\\":2,\\\"type\\\":\\\"LOAD\\\",\\\"media\\\":{\\\"contentId\\\":\\\"http://example.com/video.mp4\\\",\\\"streamType\\\":\\\"BUFFERED\\\",\\\"contentType\\\":\\\"video/mp4\\\",\\\"metadata\\\":{\\\"type\\\":0,\\\"metadataType\\\":0,\\\"title\\\":\\\"Test Video\\\"}},\\\"autoplay\\\":true}\",\"namespace\":\"urn:x-cast:com.google.cast.media\",\"senderId\":\"test-sender-id.1:com.test.app-1\"}"
+    },
+    {
+      "time": 800,
+      "ipcMessage": "{\"data\":\"{\\\"requestId\\\":3,\\\"type\\\":\\\"QUEUE_LOAD\\\",\\\"items\\\":[{\\\"media\\\":{\\\"contentId\\\":\\\"http://example.com/video.mp4\\\",\\\"streamType\\\":\\\"BUFFERED\\\",\\\"contentType\\\":\\\"video/mp4\\\"},\\\"autoplay\\\":true}]}\",\"namespace\":\"urn:x-cast:com.google.cast.media\",\"senderId\":\"test-sender-id.1:com.test.app-1\"}"
+    }
+  ]
+}
